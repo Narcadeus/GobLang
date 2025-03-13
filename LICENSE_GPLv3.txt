@@ -1,0 +1,30 @@
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright (C) 2024 GobLang Developers
+
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+---
+
+## What This License Means:
+- You are **free to use, modify, and share GobLang**.
+- Any modifications or forks **must also be open-source under the same license**.
+- **No one can take GobLang and make it private or commercial without sharing their code**.
+- If a company wants to use GobLang **for profit, they must negotiate with the project owners**.
+
+For the full legal details, visit: https://www.gnu.org/licenses/gpl-3.0.html
+

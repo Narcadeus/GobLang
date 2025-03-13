@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GobLang Web Compiler</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffd700;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 50px;
+            text-shadow: 2px 2px 5px #ffcc00;
+        }
+        textarea {
+            width: 80%;
+            height: 200px;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ffd700;
+            color: #1a1a1a;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ffcc00;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            border: 2px solid #ffd700;
+            padding: 15px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GobLang Web Compiler</h1>
+    <p>Type GobLang code below and click "Run GobLang"</p>
+
+    <textarea id="code" placeholder="hoard = 50
+shout 'I love gold!'"></textarea><br>
+    <button onclick="runGobLang()">Run GobLang</button>
+
+    <div id="output"></div>
+
+    <script>
+        function runGobLang() {
+            let code = document.getElementById("code").value;
+            let outputDiv = document.getElementById("output");
+
+            try {
+                let lines = code.split("\n");
+                let output = [];
+                let variables = {};
+
+                for (let line of lines) {
+                    line = line.trim();
+
+                    if (line.includes("=")) {
+                        let parts = line.split("=");
+                        let varName = parts[0].trim();
+                        let value = parts[1].trim();
+                        variables[varName] = isNaN(value) ? value.replace(/['"]/g, '') : Number(value);
+                    } else if (line.startsWith("shout")) {
+                        let message = line.replace("shout", "").trim();
+                        if (message in variables) {
+                            output.push(variables[message]);
+                        } else {
+                            output.push(message.replace(/['"]/g, ''));
+                        }
+                    }
+                }
+
+                outputDiv.innerHTML = "<strong>Output:</strong><br>" + output.join("<br>");
+            } catch (error) {
+                outputDiv.innerHTML = "<strong>Error:</strong> " + error.message;
+            }
+        }
+    </script>
+
+</body>
+</html>
