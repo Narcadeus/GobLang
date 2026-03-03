@@ -32,3 +32,24 @@ shout "Only make hoard bigger!"
 - **Host the full ecosystem on Cloudflare Pages.**
 
 Enjoy your GobLang journey! 👑🔥
+
+## 📘 Language Authority & Conformance
+- `SPEC.md` (GobLang v0.1) is the **language authority**.
+- `src/core/interpreter.js` is the current **reference implementation**.
+- Additional implementations (for example, Python) are optional **conformance implementations** and must pass conformance tests.
+
+### Reference implementation interface (required)
+- Node reference implementation must export `run(source, opts?)`.
+- Success shape: `{ stdout }` (optional `{ stderr, warnings }`).
+- Error shape: deterministic structured `{ line, col, message }` errors (thrown or returned consistently).
+
+### Conformance policy
+Conformance tests are normative and must reflect `SPEC.md`.
+If a conformance test contradicts `SPEC.md`, update the test to match `SPEC.md`.
+
+Any future implementation must pass these required commands:
+1. `npm run test:conformance` (SPEC example extraction + golden fixtures)
+2. `node tests/conformance/run.js --impl <path-to-implementation-entrypoint>` (implementation adapter matrix against the same suite)
+
+For non-Node implementations, run an implementation-specific adapter (for example):
+- `python tests/conformance/run.py --impl <path-to-python-implementation>`
