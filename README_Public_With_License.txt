@@ -8,10 +8,26 @@ This repository hosts the **GobLang Web Compiler**, allowing users to **write & 
 - **No one can take GobLang and make it private or commercial without sharing their code**.
 - If you use or modify GobLang, **you must credit the original developers**.
 
-## 🔧 How to Use:
-1. **Open `GobLang_Web_Compiler.html`** in your browser.
-2. **Type your GobLang code** in the text editor.
-3. **Click "Run GobLang"** to execute the code.
+## 🔧 How to Use
+
+### Option 1: Local Dev Server (Recommended)
+1. Install dependencies:
+	- `npm install`
+2. Start local dev server:
+	- `npm run dev`
+3. Open the local URL shown in the terminal.
+4. Type your GobLang code and click **"Run GobLang"**.
+
+### Option 2: Open Static File Directly
+1. Open `index.html` in your browser.
+2. Type your GobLang code and click **"Run GobLang"**.
+
+## 🏗️ Build for Production
+1. Run:
+	- `npm run build`
+2. Production files will be generated in `dist/`.
+3. Optional local preview:
+	- `npm run preview`
 
 ## 🌍 Hosting on GitHub Pages
 To deploy this Web Compiler:
